@@ -9,10 +9,9 @@ class Solution(object):
         i = 0
         while i < len(s):
             if s[i] in tmp:
-                ret = max(ret, len(tmp))
                 i = tmp[s[i]] + 1           # Move the pointer 'i' to first letter after the repeaded letter.
                 tmp = {}
             tmp[s[i]] = i
             i += 1
-            
-        return(max(ret, len(tmp)))
+            ret = max(ret, len(tmp))
+        return(ret)
