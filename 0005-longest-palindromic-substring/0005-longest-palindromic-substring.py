@@ -21,11 +21,12 @@ class Solution(object):
         memo2 = str()
         ret = str()
         for i in range(len(s)):
+            # This call of the 'generate_max_polindrome' func for cases like 'aba'.
             memo = generate_max_polindrome(s, i, i)
-            # This cond for cases like 'cbbd'.
-            # We should set edge pointers 'l' and 'r' like the first 'b' and the second 'b'
+            # And the extra call for cases like 'cbbd'.
+            # We should set the pointers 'l' and 'r' on the first 'b' and the second 'b'
             # because the middile of the palindrome is between the pointers.
-            # If else, we set them like the middle element of string 's_'.
+            # If else, we set them like the middle element of string 's_' (the first call for the 'memo' var).
             memo2 = generate_max_polindrome(s, i, i+1)
             if len(memo2) > len(ret):
                 ret = memo2
