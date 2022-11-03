@@ -4,7 +4,7 @@ class Solution(object):
         :type num: int
         :rtype: str
         """
-        
+        # There's the maximum brute force solution and it works only for the problem Description.
         helper = {
             1:      'I',
             4:      'IV',
@@ -20,9 +20,10 @@ class Solution(object):
             900:    'CM',
             1000:   'M'
         }
+        # A tmp variable for accumulate the return value.
         ret = str()
         for n in reversed(sorted(helper.keys())):
-            print('a step: n: {}, num: {}, ret: {}'.format(n, num, ret))
+            # Step by step reducing the 'num' variable: 3222 -> 2222 -> 1222 -> 222 -> 122 -> 22.
             while num >= n:
                 ret = ret + helper[n]
                 num -= n
