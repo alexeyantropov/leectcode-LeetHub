@@ -29,16 +29,11 @@ class Solution(object):
         if len(arr) < 3:
             return(False)
         while l < r:
-            l_moved = False
-            r_moved = False
             if arr[l] < arr[l+1]:
-                l_moved = True
                 l += 1
-            if arr[r] < arr[r-1]:
+            elif arr[r] < arr[r-1]:
                 r -= 1
-                l_moved = True
-            if l_moved or r_moved:
-                continue
             else:
+                # A case like [1,2,3,3,3,4]
                 return(False)
         return(l == r and l != 0 and r != len(arr)-1)
