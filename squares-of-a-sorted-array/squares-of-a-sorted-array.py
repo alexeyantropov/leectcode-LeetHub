@@ -13,8 +13,8 @@ class Solution(object):
         """
         # An another solution with two pointers to vertices of an imagined porabola.
         # [-4,-1,0,3,10]
-        l = 0                               # A pointer to the left edge of the nums list.
-        r = len(nums) - 1                   # A pointer to the right edge of the nums list.
+        l = 0                               
+        r = len(nums) - 1                   
         ret = [None for _ in nums]          # A dummy array for the return() function.
         l_ret = 0                           # A pointer to the ret array index.
         while l <= r:
