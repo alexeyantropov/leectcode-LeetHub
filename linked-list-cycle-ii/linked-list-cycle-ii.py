@@ -16,9 +16,7 @@ class Solution(object):
         if not ptr_fast:
             return(None)
         while ptr_fast:
-            if ptr_fast.next and ptr_fast.next.next:
-                pass
-            else:
+            if not (ptr_fast.next and ptr_fast.next.next):
                 return(None)
             ptr_fast = ptr_fast.next.next
             ptr_slow = ptr_slow.next
