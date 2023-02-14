@@ -9,7 +9,9 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        # The idea in the explanation (https://leetcode.com/explore/learn/card/linked-list/219/classic-problems/1204/) is quite different than the most popular solution. In the solution we essentially build a new L-list from the nodes and don't move a fist element step by step to the end. 
+        # The idea in the explanation (https://leetcode.com/explore/learn/card/linked-list/219/classic-problems/1204/)
+        # is quite different than the most popular solution.
+        # In the solution we essentially build a new L-list from the nodes and don't move a fist element step by step to the end. 
         # 1 2 3 4 5 -> 1, 2 3 4 5 -> 2 1, 3 4 5 -> 3 2 1, 4 5 -> ...
         ptr_prev = None
         ptr_tmp = None
