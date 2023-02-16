@@ -9,17 +9,19 @@ class Solution(object):
         :type head: ListNode
         :type val: int
         :rtype: ListNode
-        """
-        # head = [1,2,6,3,4,5,6], val = 6 -> [1,2,3,4,5]
-        # head_new = [None] -> [None,1] -> [None,1,2] -> [None, 1,2,3]
-        p = head
-        head_new = ListNode(None)
-        p_new = head_new
-        while p:
-            if p.val == val:
-                p_new.next = None # It's useful for the last node of the list. 
+        """ 
+        # head  = [1,2,6,3,4,5,6], val = 6 -> [1,2,3,4,5]
+        # head2 = [None] -> [None,1] -> [None,1,2] -> [None,1,2,3]
+        pR = head
+        headNew = ListNode(None)
+        pL = headNew 
+        while pR:
+            if pR.val == val:
+                pL.next = None # It's useful for the last node of the list. 
             else:
-                p_new.next = p
-                p_new = p_new.next
-            p = p.next            
-        return(head_new.next)
+                pL.next = pR
+                pL = pL.next
+            pR = pR.next
+        # It returns a list starts from the new 'pL.next' node for cases like '[7,7,7], 7'.
+        # For other cases, when 'head.val != val', it could return 'head'.
+        return(headNew.next)
