@@ -27,9 +27,7 @@ class Solution(object):
         diagonal_number = 0
         for i in range(m):
             ret = ret + get_diagonal(i, 0)
-            diagonal_number += 1
         for i in range(1,n):
             ret = ret + get_diagonal(m-1, i)
-            diagonal_number += 1
         return(ret)
                 
