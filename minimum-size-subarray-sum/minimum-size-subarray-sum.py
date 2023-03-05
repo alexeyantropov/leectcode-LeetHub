@@ -24,15 +24,16 @@ class Solution(object):
         return(ret)
         """
         # The second. The sliding window approach.
+        # A nested loop pulls up the 'left' pointer to the 'right' one. There is a window! And the window size is limited by sum of elements that are contained in. 
         ret = 10**9 + 1
         target_ = 0
         left, right = 0, 0
         while right < len(nums):
             target_ += nums[right]
-            while target_ >= target:
-                ret = min(ret, right - left + 1)
+            while target_ >= target:                # The windows size.
+                ret = min(ret, right - left + 1)    # A possible result.
                 target_ = target_ - nums[left]
-                left += 1
+                left += 1                           # The 'left' pointer pull up.
             right += 1
         if ret == 10**9 + 1: ret = 0
         return(ret)
