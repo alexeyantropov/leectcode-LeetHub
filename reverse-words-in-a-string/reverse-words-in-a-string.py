@@ -8,7 +8,8 @@ class Solution(object):
         '''
         return(' '.join(s.split()[::-1]))
         '''
-        # The second one.
+        # The second one. It uses O(1) extra space.
+        s = ' ' + s
         initial_size, l, r = len(s), len(s) - 1, len(s)
         while l > -1:
             if s[l] == ' ' and l == r - 1:
@@ -17,8 +18,6 @@ class Solution(object):
             if s[l] != ' ' and l > 0:
                 l -= 1
             else:
-                if s[l] != ' ':
-                    s = s + ' '
                 s = s + s[l:r]
                 l -= 1; r = l + 1
         return(s[initial_size + 1:len(s)])
