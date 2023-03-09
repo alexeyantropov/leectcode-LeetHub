@@ -6,8 +6,7 @@ class MyHashSet(object):
         self.storage = [False]*max_key
         
     def add(self, key):
-        if not self.storage[key]:
-            self.storage[key] = True
+        self.storage[key] = True
 
     def remove(self, key):
         self.storage[key] = False
