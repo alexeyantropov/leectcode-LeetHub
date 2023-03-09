@@ -10,21 +10,16 @@ class MyHashMap(object):
         self.storage = [None] * (self.buckets + 1)
         
     def get_bucket(self, key):
-        return(key % self.buckets)
-    
-    def get_offset(self, key):
-        return(key // self.buckets)
+        return(divmod(key, self.buckets)[::-1])
         
     def put(self, key, value):
-        bucket = self.get_bucket(key)
-        offset = self.get_offset(key)
+        bucket, offset = self.get_bucket(key)
         if self.storage[bucket] == None:
             self.storage[bucket] = [None] * ((self.max_key // self.buckets) + 1)
         self.storage[bucket][offset] = value
         
     def get(self, key):
-        b = self.get_bucket(key)
-        o = self.get_offset(key)
+        b, o = self.get_bucket(key)
         if self.storage[b] == None:
             return(-1)
         if self.storage[b][o] == None:
@@ -33,7 +28,6 @@ class MyHashMap(object):
             return(self.storage[b][o])
         
     def remove(self, key):
-        b = self.get_bucket(key)
-        o = self.get_offset(key)
+        b, o = self.get_bucket(key)
         if not self.storage[b] == None:
             self.storage[b][o] = None
