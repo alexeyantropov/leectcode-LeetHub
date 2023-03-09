@@ -4,8 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        # The solution is suitable only for the Constraints!
-        # There always is an element which appears only once.
+        # The solution follows to the topic 'Hash table'.
         helper = dict()
         for i in range(len(nums)):
             if nums[i] in helper:
