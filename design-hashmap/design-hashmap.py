@@ -35,6 +35,5 @@ class MyHashMap(object):
     def remove(self, key):
         b = self.get_bucket(key)
         o = self.get_offset(key)
-        print(key, b, o)
         if not self.storage[b] == None:
             self.storage[b][o] = None
