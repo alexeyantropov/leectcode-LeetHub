@@ -2,6 +2,7 @@ class MyHashMap(object):
 
     # The simplest idea with an a list for low-level storage.
     # Needs O(max key) memory and works with O(1) complexity for standard methods.
+    # If keys will be alphanumeric then it needs O(2 * max key) memory for storring keys and values.  
     
     def __init__(self):
         self.storage = [None] * (10**6 + 1)
