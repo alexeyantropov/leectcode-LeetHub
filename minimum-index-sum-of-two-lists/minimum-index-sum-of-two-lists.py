@@ -5,9 +5,11 @@ class Solution(object):
         :type list2: List[str]
         :rtype: List[str]
         """
+        # The first idea. Time O(len(list1) + len(list2) + max(len(list1),len(list2)), space O(list1+list2)
+        # The first loop fills words 
         helper = dict()
         ret = list()
-        least_sum = 2*1000 + 1 
+        least_sum = len(list1) + len(list2) - 1
         for i in range(len(list1)):
             helper[list1[i]] = -i
         for i in range(len(list2)):
