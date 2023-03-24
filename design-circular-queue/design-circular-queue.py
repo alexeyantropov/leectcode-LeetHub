@@ -2,7 +2,9 @@
 # A list is used as a backend storage for a ring buffer of the queue.
 # Initial pointers values are set as 0 and this corner case is checked in the 'enQueue' method.
 # Also it's possible to set them as None or 1 like in the "Circular Queue" article.
-# Extra print() calls are provided for more clear debug and understanding what is happeing. 
+
+# In this solution I don't use an additional counter of elements in buffer
+# but it makes the 'isEmpty' and 'isFull' methods simplier without extra conditions.
 
 class MyCircularQueue(object):
 
@@ -27,28 +29,26 @@ class MyCircularQueue(object):
         return(True)
         
     def Front(self):
-        #print('Front, buff: {}'.format(self.buff))
         if self.isEmpty():
             return(-1)
         else:
             return(self.buff[self.head])
 
     def Rear(self):
-        #print('Rear, buff: {}, tail: {}'.format(self.buff, self.tail))
         if self.isEmpty():
             return(-1)
         else:
             return(self.buff[self.tail])
         
     def isEmpty(self):
-        #print('isEmpty, head: {}, tail: {}, buff: {}'.format(self.head, self.tail, self.buff))
+        # It could be replaced by an extra counter of elements!
         if self.head == self.tail and self.buff[self.head] == None:
             return(True)
         else:
             return(False)
 
     def isFull(self):
-        #print('isFull, buff: {}, head: {}, tail: {}'.format(self.buff, self.head, self.tail))
+        # It could be replaced by an extra counter of elements!
         if self.tail == self.head and len(self.buff) == 1 and self.buff[self.tail] != None:
             print('isFull, F 0')
             return(True)       
@@ -61,5 +61,4 @@ class MyCircularQueue(object):
         if self.tail < self.head and self.head - self.tail > 1:
             print('isFull, F')
             return(False)
-        #print('isFull, T')
         return(True)
